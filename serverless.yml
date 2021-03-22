@@ -1,0 +1,40 @@
+service: serverless-pymongo-tpass-fastapi
+
+frameworkVersion: "2"
+
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-python-requirements
+
+useDotenv: true
+
+custom:
+  localstack:
+    debug: true
+    stages:
+      - local
+      - dev
+    host: http://localhost  # optional - LocalStack host to connect to
+    edgePort: 4566  # optional - LocalStack edge port to connect to
+    autostart: true  # optional - Start LocalStack in Docker on Serverless deploy
+    lambda:
+      # Enable this flag to improve performance
+      mountCode: True
+    # endpointFile: localstack_endpoints.json
+  pythonRequirements:
+    dockerizePip: non-linux
+
+provider:
+  name: aws
+  runtime: python3.8
+
+functions:
+  app:
+    handler: app/backend/main.handler
+    events:
+      - http:
+          method: ANY
+          path: /
+      - http:
+          method: ANY
+          path: /{proxy+}

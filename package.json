@@ -1,0 +1,14 @@
+{
+  "name": "aws-python-rest-api-with-pymongo",
+  "version": "1.0.0",
+  "description": "Serverless Tpass API",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "serverless-dotenv-plugin": "^3.9.0",
+    "serverless-python-requirements": "^5.1.0"
+  },
+  "devDependencies": {
+    "serverless-localstack": "^0.4.29"
+  }
+}
