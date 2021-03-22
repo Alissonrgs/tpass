@@ -1,0 +1,7 @@
+fastapi==0.63.0
+mangum==0.11.0
+motor==2.3.1
+passlib[bcrypt]
+python-jose[cryptography]
+python-multipart
+uvicorn[standard]

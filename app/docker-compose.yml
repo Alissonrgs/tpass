@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  mongodb:
+    image: mongo
+    network_mode: bridge
+    ports:
+      - 27017:27017
+    # environment:
+    #   MONGO_INITDB_DATABASE: tpassdb
+    #   MONGO_INITDB_ROOT_USERNAME: tpass
+    #   MONGO_INITDB_ROOT_PASSWORD: tpass
+    volumes:
+      - mongodb_data:/data/db
+      - mongodb_config:/data/configdb
+
+volumes:
+  mongodb_data:
+    driver: local
+  mongodb_config:
+    driver: local
